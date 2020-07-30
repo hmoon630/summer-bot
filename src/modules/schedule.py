@@ -2,7 +2,7 @@ from selenium import webdriver
 import requests
 from bs4 import BeautifulSoup
 
-class Schedule:
+def Schedule(category='epl', year=2020, month=7):
     options = webdriver.ChromeOptions()
     options.add_argument('headless')
     options.add_argument('window-size=1920x1080')
@@ -12,7 +12,7 @@ class Schedule:
     driver = webdriver.Chrome(path,chrome_options=options)
     driver.implicitly_wait(3) # seconds
 
-    naver_wfootball = "https://sports.news.naver.com/wfootball/schedule/index.nhn?year=2020&month=07&category=seria"
+    naver_wfootball = "https://sports.news.naver.com/wfootball/schedule/index.nhn?year=2020&month=07&category=epl"
     driver.get(naver_wfootball)
 
     page = driver.page_source
@@ -21,6 +21,8 @@ class Schedule:
     fw = open("schedule.txt", "a+", encoding='utf-8')
 
     for schedule in team_day_list:
+        f = open("schedule.txt", "w", encoding='utf-8')
+        f.close()
         with open("schedule.txt", "a+", encoding='utf-8') as fw:
             fw.flush()
             try:

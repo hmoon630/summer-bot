@@ -7,5 +7,3 @@ class MyBot(commands.Bot):
         await self.change_presence(activity=activity)
         print('봇 시작!')
 
-    async def on_command_error(self, context, exception):
-        return
