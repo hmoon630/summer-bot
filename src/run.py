@@ -6,6 +6,7 @@ COGS_LIST = [Greetings]
 
 
 if __name__ == '__main__':
+    
     bot = MyBot(command_prefix='.')
     
 
