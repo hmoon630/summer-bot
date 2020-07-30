@@ -21,7 +21,9 @@ class Greetings(commands.Cog):
             embed = discord.Embed(color=0x00ff56)
             embed.set_author(name="사용법", icon_url="https://e7.pngegg.com/pngimages/121/1000/png-clipart-white-and-black-soccer-ball-with-flame-illustration-2014-fifa-world-cup-football-player-sport-fire-football-game-orange.png")
             embed.set_thumbnail(url="https://e7.pngegg.com/pngimages/121/1000/png-clipart-white-and-black-soccer-ball-with-flame-illustration-2014-fifa-world-cup-football-player-sport-fire-football-game-orange.png")
-            embed.add_field(name="Rank", value="`순위 [리그명] [년도]`,`리그목록`", inline=False)
+            embed.add_field(name="끝말잇기", value="`.끝말잇기`", inline=False)
+            embed.add_field(name="Rank", value="`.축구 순위 [리그명] [년도]`,`.축구 리그목록`", inline=False)
+            embed.add_field(name="Schedule", value="`.오늘의경기 [리그명]`,`.축구 리그목록`,`.이달의경기 [리그명]`,\n`.경기 [리그명] [년도] [월] [일]`", inline=False)
             await ctx.send(embed=embed)
         else:
             kind = msg
@@ -70,7 +72,7 @@ class Greetings(commands.Cog):
                 embed.set_author(name="리그 목록")
                 embed.set_thumbnail(url="https://resources.premierleague.com/premierleague/photo/2018/11/27/3a933964-a478-4369-b9e0-44d40027205c/Rainbow-Laces-2018-Article-Lead.png")
                 embed.add_field(name="순위조회", value="```프리미어리그, 라리가, 세리에, 분데스리가, 프랑스리그```", inline=False)
-                embed.add_field(name="경기일정조회", value="```프리미어리그, 라리가, 세리에, 분데스리가, 프랑스리그, 챔피언스리그, 유로파리그```", inline=False)
+                embed.add_field(name="경기일정조회", value="```프리미어리그, 라리가, 세리에, 분데스리가, 프랑스리그, 챔피언스리그, 유로파리그, fa컵```", inline=False)
                 await ctx.send(embed=embed)
     @commands.command()
     async def 이달의경기(self, ctx, league='epl'):
