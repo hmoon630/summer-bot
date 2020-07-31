@@ -2,16 +2,17 @@ from selenium import webdriver
 import requests
 from bs4 import BeautifulSoup
 
+options = webdriver.ChromeOptions()
+options.add_argument('headless')
+options.add_argument('window-size=1920x1080')
+options.add_argument("disable-gpu")
+
+path = "C:\\Users\\David Kim\\Searches\\Downloads\\chromedriver_win32\\chromedriver.exe" #webdriver 설치 경로를 입력해주세요
+driver = webdriver.Chrome(path,chrome_options=options)
+driver.implicitly_wait(3) # seconds 
 
 def getRank(category='epl', year=2019):
-    options = webdriver.ChromeOptions()
-    options.add_argument('headless')
-    options.add_argument('window-size=1920x1080')
-    options.add_argument("disable-gpu")
- 
-    path = "C:\\Users\\David Kim\\Searches\\Downloads\\chromedriver_win32\\chromedriver.exe" #webdriver 설치 경로를 입력해주세요
-    driver = webdriver.Chrome(path,chrome_options=options)
-    driver.implicitly_wait(3) # seconds 
+    
     naver_wfootball = f"https://sports.news.naver.com/wfootball/record/index.nhn?category={category}&year={year}"
     driver.get(naver_wfootball)
  

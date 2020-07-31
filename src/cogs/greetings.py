@@ -28,6 +28,7 @@ class Greetings(commands.Cog):
         else:
             kind = msg
             print(kind, league, year)
+            await ctx.send("경기순위를 가져오고 있습니다...\n잠시만 기다려주세요")
             if (kind == '순위'):
                 if(league == "프리미어리그"):
                     rank_list = rank.getRank('epl',year)
@@ -76,6 +77,7 @@ class Greetings(commands.Cog):
                 await ctx.send(embed=embed)
     @commands.command()
     async def 이달의경기(self, ctx, league='epl'):
+        await ctx.send("이달의 경기일정을 가져오고 있습니다...\n잠시만 기다려주세요")
         month = datetime.today().month
         embed = discord.Embed(title="일정", color=0x00ff56)
         embed2 = discord.Embed(title="일정", color=0x00ff56)
@@ -157,6 +159,7 @@ class Greetings(commands.Cog):
 
     @commands.command()
     async def 오늘의경기(self, ctx, league='epl'):
+        await ctx.send("오늘의 경기일정을 가져오고 있습니다...\n잠시만 기다려주세요")
         month = datetime.today().month
         day = datetime.today().day
         embed = discord.Embed(title="일정", color=0x00ff56)
@@ -213,6 +216,7 @@ class Greetings(commands.Cog):
 
     @commands.command()
     async def 경기(self, ctx, league='epl', year=year, month=month, day=day):
+        await ctx.send("해당 날짜의 경기일정을 가져오고 있습니다...\n잠시만 기다려주세요")
         embed = discord.Embed(title="일정", color=0x00ff56)
         if(league == "프리미어리그"):
             schedule_list = Schedule().this_match('epl',year,month,day)
